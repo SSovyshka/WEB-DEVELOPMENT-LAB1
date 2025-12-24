@@ -3,15 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Лабораторна робота №1 – Варіант 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS, який можна включати/відключати -->
     <link id="theme" rel="stylesheet" href="" disabled>
+
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
 
     <script>
         function toggleCSS() {
             const css = document.getElementById("theme");
             if (css.disabled) {
-                css.href = "style.css";   // файл стилів
+                css.href = "style.css";
                 css.disabled = false;
                 document.getElementById("btn").innerText = "Вимкнути CSS";
             } else {
@@ -24,7 +55,6 @@
 
 <body>
 
-<!-- ================= ПЕРЕМИКАЧ CSS ================= -->
 <button id="btn" onclick="toggleCSS()">Увімкнути CSS</button>
 <hr>
 
@@ -33,115 +63,95 @@
 
 <br>
 
-<!-- ================= 1. ОФОРМЛЕНИЙ ТЕКСТ ================= -->
 <h2 id="text">1. Оформлений текст</h2>
-
-<p>
-    Формула перестановок:
-    <b>P</b><sub>n</sub> = 1 &middot; 2 &middot; 3 &middot; ... &middot; <i>n</i>.
-</p>
-
-<p>
-    Стрілка &rarr;, грецька літера &alpha;, кутові дужки &lt; і &gt;.
-</p>
-
-<p>
-    Підносимо до степеня:
-    <b>a</b><sup>2</sup> + <b>b</b><sub>3</sub>.
-</p>
+<p>Формула перестановок: <b>P</b><sub>n</sub> = 1 &middot; 2 &middot; 3 &middot; ... &middot; <i>n</i>.</p>
+<p>Стрілка &rarr;, грецька літера &alpha;, кутові дужки &lt; і &gt;.</p>
+<p>Підносимо до степеня: <b>a</b><sup>2</sup> + <b>b</b><sub>3</sub>.</p>
 
 <hr>
 
-<!-- ================= 2. СПИСОК ВИЗНАЧЕНЬ ================= -->
 <h2 id="disc">2. Дисципліни 3-го курсу</h2>
-
 <dl>
     <dt><b>Операційні системи</b></dt>
     <dd>Принципи роботи ОС.</dd>
-
     <dt><b>Бази даних</b></dt>
     <dd>БД та SQL.</dd>
-
     <dt><b>Комп’ютерні мережі</b></dt>
     <dd>Мережеві протоколи, маршрутизація.</dd>
-
     <dt><b>Веб-технології</b></dt>
     <dd>HTML, JavaScript, PHP.</dd>
-
     <dt><b>Кібербезпека</b></dt>
     <dd>Захист інформації.</dd>
 </dl>
 
 <hr>
 
-<!-- ================= 3. ТАБЛИЦЯ ================= -->
 <h2 id="table">3. Фрагмент періодичної таблиці</h2>
-
-<table border="1" cellpadding="5">
-    <tr>
-        <th>№</th>
-        <th>Символ</th>
-        <th>Назва</th>
-    </tr>
-    <tr>
-        <td>1</td><td>H</td><td>Гідроген</td>
-    </tr>
-    <tr>
-        <td>6</td><td>C</td><td>Карбон</td>
-    </tr>
-    <tr>
-        <td>7</td><td>N</td><td>Нітроген</td>
-    </tr>
-    <tr>
-        <td>8</td><td>O</td><td>Оксиген</td>
-    </tr>
+<table>
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Символ</th>
+            <th>Назва</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td>H</td><td>Гідроген</td></tr>
+        <tr><td>6</td><td>C</td><td>Карбон</td></tr>
+        <tr><td>7</td><td>N</td><td>Нітроген</td></tr>
+        <tr><td>8</td><td>O</td><td>Оксиген</td></tr>
+    </tbody>
 </table>
 
 <hr>
 
-<!-- ================= 4. ФОРМА ================= -->
 <h2 id="form">4. Форма опису ПК</h2>
-
-<form>
-    Процесор:<br>
-    <input type="text" name="cpu"><br><br>
-
-    Відеокарта:<br>
-    <input type="text" name="gpu"><br><br>
-
-    ОЗП (ГБ):<br>
-    <input type="number" name="ram"><br><br>
-
-    Тип накопичувачів:<br>
-    <input type="checkbox" name="ssd"> SSD<br>
-    <input type="checkbox" name="hdd"> HDD<br><br>
-
-    Корпус:<br>
-    <select>
-        <option>Mini Tower</option>
-        <option>Midi Tower</option>
-        <option>Full Tower</option>
-    </select><br><br>
-
+<form action="#" method="post">
+    <label>Процесор:<br>
+        <input type="text" name="cpu">
+    </label><br><br>
+    
+    <label>Відеокарта:<br>
+        <input type="text" name="gpu">
+    </label><br><br>
+    
+    <label>ОЗП (ГБ):<br>
+        <input type="number" name="ram" min="0">
+    </label><br><br>
+    
+    <fieldset>
+        <legend>Тип накопичувачів:</legend>
+        <label><input type="checkbox" name="ssd"> SSD</label><br>
+        <label><input type="checkbox" name="hdd"> HDD</label>
+    </fieldset><br>
+    
+    <label>Корпус:<br>
+        <select name="case">
+            <option value="mini">Mini Tower</option>
+            <option value="midi">Midi Tower</option>
+            <option value="full">Full Tower</option>
+        </select>
+    </label><br><br>
+    
     <input type="submit" value="Надіслати">
 </form>
 
 <hr>
 
-<!-- ================= 5. MAP + AREA ================= -->
 <h2 id="map">5. Карта зображення</h2>
-
 <p>Клік по різних частинах зображення веде на різні сайти:</p>
 
-<img src="https://tse3.mm.bing.net/th/id/OIP.x7E40G6bC6phCz-fAxehoAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+<img src="https://via.placeholder.com/300x300/007bff/ffffff?text=Example+Image"
      width="300"
+     height="300"
+     alt="Example image map"
      usemap="#nure">
 
 <map name="nure">
     <area shape="rect" coords="0,0,300,100"
           href="https://nure.ua" alt="NURE">
     <area shape="rect" coords="0,100,300,200"
-          href="https://its.nure.ua" a lt="ITS">
+          href="https://its.nure.ua" alt="ITS">
     <area shape="rect" coords="0,200,300,300"
           href="https://nure.ua/rozklad" alt="Розклад">
 </map>
